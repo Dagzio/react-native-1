@@ -11,15 +11,28 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 
 const LoginScreen = () => {
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
   const [isSecureText, setIsSecureText] = useState(true);
   const secureTextToggle = () => {
     setIsSecureText((prev) => !prev);
+  };
+
+  /**
+   * SIMULATED FORM SUBMISSION ======================================
+   */
+  const onLogin = () => {
+    Alert.alert(`Welcome! ${inputEmail} : ${inputPassword}`);
+    setInputEmail("");
+    setInputPassword("");
   };
 
   return (
@@ -46,6 +59,8 @@ const LoginScreen = () => {
                 placeholder="Адрес електронної пошти"
                 style={isEmailFocused ? styles.inputFocused : styles.input}
                 inputMode="email"
+                value={inputEmail}
+                onChangeText={setInputEmail}
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
               />
@@ -53,6 +68,8 @@ const LoginScreen = () => {
                 placeholder="Пароль"
                 style={isPasswordFocused ? styles.inputFocused : styles.input}
                 secureTextEntry={isSecureText}
+                value={inputPassword}
+                onChangeText={setInputPassword}
                 onFocus={() => setIsPasswordFocused(true)}
                 onBlur={() => setIsPasswordFocused(false)}
               />
@@ -65,7 +82,7 @@ const LoginScreen = () => {
                 </Pressable>
               </View>
               <View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={onLogin}>
                   <Text style={styles.loginButtonText}>Увійти</Text>
                 </TouchableOpacity>
                 <Pressable>

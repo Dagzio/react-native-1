@@ -11,10 +11,15 @@ import {
   StatusBar,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 const RegistrationScreen = () => {
+  const [inputName, setInputName] = useState("");
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+
   const [isLoginFocused, setIsLoginFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -22,6 +27,16 @@ const RegistrationScreen = () => {
   const [isSecureText, setIsSecureText] = useState(true);
   const secureTextToggle = () => {
     setIsSecureText((prev) => !prev);
+  };
+
+  /**
+   * SIMULATED FORM SUBMISSION ======================================
+   */
+  const onRegister = () => {
+    Alert.alert(`${inputName} : ${inputEmail}\nPassword : ${inputPassword}`);
+    setInputName("");
+    setInputEmail("");
+    setInputPassword("");
   };
 
   return (
@@ -57,6 +72,8 @@ const RegistrationScreen = () => {
                 placeholder="Логін"
                 style={isLoginFocused ? styles.inputFocused : styles.input}
                 inputMode="text"
+                value={inputName}
+                onChangeText={setInputName}
                 onFocus={() => setIsLoginFocused(true)}
                 onBlur={() => setIsLoginFocused(false)}
               />
@@ -64,6 +81,8 @@ const RegistrationScreen = () => {
                 placeholder="Адрес електронної пошти"
                 style={isEmailFocused ? styles.inputFocused : styles.input}
                 inputMode="email"
+                value={inputEmail}
+                onChangeText={setInputEmail}
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
               />
@@ -71,6 +90,8 @@ const RegistrationScreen = () => {
                 placeholder="Пароль"
                 style={isPasswordFocused ? styles.inputFocused : styles.input}
                 secureTextEntry={isSecureText}
+                value={inputPassword}
+                onChangeText={setInputPassword}
                 onFocus={() => setIsPasswordFocused(true)}
                 onBlur={() => setIsPasswordFocused(false)}
               />
@@ -84,7 +105,7 @@ const RegistrationScreen = () => {
               </View>
 
               <View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={onRegister}>
                   <Text style={styles.registerButtonText}>Зареєструватися</Text>
                 </TouchableOpacity>
                 <Pressable>

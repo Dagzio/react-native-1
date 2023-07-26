@@ -12,8 +12,8 @@ export default App = () => {
   if (!fontsLoaded) {
     return null;
   }
-  return <PostsScreen />;
-  //
-  //<RegistrationScreen />;
-  //<LoginScreen />;
+  return <RegistrationScreen />;
+  // <LoginScreen />;
+
+  //<PostsScreen />;
 };
