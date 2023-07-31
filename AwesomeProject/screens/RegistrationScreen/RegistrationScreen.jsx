@@ -12,10 +12,14 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Image
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 
 const RegistrationScreen = () => {
+  const navigation = useNavigation();
+  
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -59,6 +63,10 @@ const RegistrationScreen = () => {
 
             <View style={styles.form}>
               <View style={styles.avatar}>
+                <Image
+          source={require("../../assets/images/userPhotoM.jpg")}
+          style={styles.userPhoto}
+        />
                 <AntDesign
                   name="pluscircleo"
                   size={24}
@@ -111,7 +119,7 @@ const RegistrationScreen = () => {
                 <Pressable>
                   <Text style={styles.authText}>
                     Вже є акаунт?{" "}
-                    <Text style={styles.loginAuthText}>Увійти</Text>
+                    <Text style={styles.loginAuthText} onPress={() => navigation.navigate("LoginScreen")}>Увійти</Text>
                   </Text>
                 </Pressable>
               </View>
@@ -136,6 +144,11 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 16,
     backgroundColor: "#f6f6f6",
+  },
+   userPhoto: {
+    width: 120,
+    height: 120,
+    borderRadius: 16,
   },
   addIcon: {
     position: "absolute",

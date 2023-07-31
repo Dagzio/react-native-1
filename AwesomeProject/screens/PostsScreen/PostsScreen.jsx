@@ -1,8 +1,4 @@
-import { TouchableOpacity, View } from "react-native";
-import { Pressable } from "react-native";
-import { Image, Text } from "react-native";
-import { StyleSheet } from "react-native";
-import { ScrollView } from "react-native";
+import { StyleSheet, Image, ScrollView, Text, Pressable,TouchableOpacity, View, } from "react-native";
 
 const PostsScreen = () => {
   return (
@@ -11,14 +7,14 @@ const PostsScreen = () => {
         <Text style={styles.postsHeaderText}>Публікації</Text>
         <Pressable style={styles.logOutButton}>
           <Image
-            source={require("../../assets/icons/logOut.jpg")}
+            source={require("../../assets/icons/logOutIcon.jpg")}
             style={styles.logOutIcon}
           />
         </Pressable>
       </View>
       <View style={styles.userInfo}>
         <Image
-          source={require("../../assets/images/UserPhoto.jpg")}
+          source={require("../../assets/images/UserPhotoS.jpg")}
           style={styles.userPhoto}
         />
         <View>
@@ -30,19 +26,19 @@ const PostsScreen = () => {
       <View style={styles.navigationMenu}>
         <Pressable>
           <Image
-            source={require("../../assets/icons/grid.jpg")}
+            source={require("../../assets/icons/gridIcon.jpg")}
             style={styles.gridIcon}
           />
         </Pressable>
         <TouchableOpacity style={styles.iconWrapper}>
           <Image
-            source={require("../../assets/icons/add.jpg")}
+            source={require("../../assets/icons/addIcon.jpg")}
             style={styles.addIcon}
           />
         </TouchableOpacity>
         <Pressable>
           <Image
-            source={require("../../assets/icons/user.jpg")}
+            source={require("../../assets/icons/userIcon.jpg")}
             style={styles.userIcon}
           />
         </Pressable>

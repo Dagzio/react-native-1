@@ -13,8 +13,11 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
@@ -88,7 +91,7 @@ const LoginScreen = () => {
                 <Pressable>
                   <Text style={styles.authText}>
                     Немає акаунту?{" "}
-                    <Text style={styles.registerAuthText}>Зареєструватися</Text>
+                    <Text style={styles.registerAuthText} onPress={() => navigation.navigate("RegistrationScreen")}>Зареєструватися</Text>
                   </Text>
                 </Pressable>
               </View>
