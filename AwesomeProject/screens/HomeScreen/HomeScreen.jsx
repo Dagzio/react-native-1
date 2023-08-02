@@ -1,13 +1,14 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, View, Pressable, StyleSheet, Image } from "react-native";
 
-import { CreatePostsScreen } from "../CreatePostsScreen/CreatePostsScreen";
-import { PostsScreen } from "../PostsScreen/PostsScreen";
+import  CreatePostsScreen  from "../CreatePostsScreen/CreatePostsScreen";
+import  PostsScreen  from "../PostsScreen/PostsScreen";
 import { useNavigation } from "@react-navigation/native";
 
 // import { unionImg, userImg, gridImg } from "./tabBarImages";
-import { ProfileScreen } from "../ProfileScreen/ProfileScreen";
+import  ProfileScreen  from "../ProfileScreen/ProfileScreen";
 import { useState } from "react";
+import { createPostIcon, gridIcon, userIcon } from "./tabBarIcons";
 
 const Tabs = createBottomTabNavigator();
 
@@ -21,15 +22,15 @@ const HomeScreen = () => {
           let iconSrc;
 
               switch (route.name) {
-                case "ProfileScreen":
-                      iconSrc = userImg();
+                case "CreatePostScreen":
+                      iconSrc = createPostIcon();
                       return iconSrc;
-                  case "CreatePostScreen":
-                      iconSrc = unionImg();
+                  case "PostsScreen":
+                      iconSrc = gridIcon();
                       return iconSrc;
 
-                  case "PostsScreen":
-                      iconSrc = gridImg();
+                  case "ProfileScreen":
+                      iconSrc = userIcon();
                       return iconSrc;
 
                 default:
@@ -37,9 +38,9 @@ const HomeScreen = () => {
               }
         },
         tabBarStyle: {
-          borderWidth: 1,
-          borderStyle: "solid",
-          borderColor: "#E8E8E8",
+          // borderWidth: 1,
+          // borderStyle: "solid",
+          // borderColor: "#e8e8e8",
           paddingLeft: 50,
           paddingRight: 50,
           paddingTop: 9,
@@ -52,7 +53,7 @@ const HomeScreen = () => {
         name="PostsScreen"
         component={PostsScreen}
         options={{
-          headerTitle: "Публікації",
+          headerTitle: "Публікації1",
           headerTitleAlign: "center",
           headerStyle: {
             borderBottomWidth: 1,
@@ -114,40 +115,40 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     position: "absolute",
-    right: 19,
+    right: 16,
   },
-  bottomMenu: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    height: 70,
-    width: "100%",
-    borderTopWidth: 1,
-    borderTopColor: "#b3b3b3",
-    backgroundColor: "#fff",
-  },
-  imageGrid: {
-    width: 24,
-    height: 24,
-    marginRight: 31,
-  },
-  btnPlus: {
-    width: 70,
-    height: 40,
-    backgroundColor: "#FF6C00",
-    borderRadius: 20,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  btnPlusImg: {
-    width: 13,
-    height: 13,
-  },
-  imageUser: {
-    width: 24,
-    height: 24,
-    marginLeft: 31,
-  },
+  // bottomMenu: {
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   height: 70,
+  //   width: "100%",
+  //   borderTopWidth: 1,
+  //   borderTopColor: "#b3b3b3",
+  //   backgroundColor: "#fff",
+  // },
+  // imageGrid: {
+  //   width: 24,
+  //   height: 24,
+  //   marginRight: 31,
+  // },
+  // btnPlus: {
+  //   width: 70,
+  //   height: 40,
+  //   backgroundColor: "#FF6C00",
+  //   borderRadius: 20,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
+  // btnPlusImg: {
+  //   width: 13,
+  //   height: 13,
+  // },
+  // imageUser: {
+  //   width: 24,
+  //   height: 24,
+  //   marginLeft: 31,
+  // },
   arrowIcon: {
     width: 24,
     height: 24,
