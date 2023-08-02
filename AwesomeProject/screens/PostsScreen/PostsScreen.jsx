@@ -14,7 +14,7 @@ const PostsScreen = () => {
       </View> */}
       <View style={styles.userInfo}>
         <Image
-          source={require("../../assets/images/UserPhotoS.jpg")}
+          source={require("../../assets/images/userPhotoS.jpg")}
           style={styles.userPhoto}
         />
         <View>
