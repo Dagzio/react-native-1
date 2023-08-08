@@ -1,14 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Text, View, Pressable, StyleSheet, Image } from "react-native";
+import {Pressable, StyleSheet, Image } from "react-native";
 
 import  CreatePostsScreen  from "../CreatePostsScreen/CreatePostsScreen";
 import  PostsScreen  from "../PostsScreen/PostsScreen";
 import { useNavigation } from "@react-navigation/native";
-
-// import { unionImg, userImg, gridImg } from "./tabBarImages";
 import  ProfileScreen  from "../ProfileScreen/ProfileScreen";
-import { useState } from "react";
-import { createPostIcon, gridIcon, userIcon } from "./tabBarIcons";
+import { createPostIcon, gridIcon, userIcon, addPostIcon } from "./tabBarIcons";
 
 const Tabs = createBottomTabNavigator();
 
@@ -23,12 +20,11 @@ const HomeScreen = () => {
 
               switch (route.name) {
                 case "CreatePostScreen":
-                      iconSrc = createPostIcon();
+                      iconSrc = createPostIcon(addPostIcon());
                       return iconSrc;
                   case "PostsScreen":
                       iconSrc = gridIcon();
                       return iconSrc;
-
                   case "ProfileScreen":
                       iconSrc = userIcon();
                       return iconSrc;
@@ -38,9 +34,6 @@ const HomeScreen = () => {
               }
         },
         tabBarStyle: {
-          // borderWidth: 1,
-          // borderStyle: "solid",
-          // borderColor: "#e8e8e8",
           paddingLeft: 50,
           paddingRight: 50,
           paddingTop: 9,
@@ -117,38 +110,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 16,
   },
-  // bottomMenu: {
-  //   flexDirection: "row",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   height: 70,
-  //   width: "100%",
-  //   borderTopWidth: 1,
-  //   borderTopColor: "#b3b3b3",
-  //   backgroundColor: "#fff",
-  // },
-  // imageGrid: {
-  //   width: 24,
-  //   height: 24,
-  //   marginRight: 31,
-  // },
-  // btnPlus: {
-  //   width: 70,
-  //   height: 40,
-  //   backgroundColor: "#FF6C00",
-  //   borderRadius: 20,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // btnPlusImg: {
-  //   width: 13,
-  //   height: 13,
-  // },
-  // imageUser: {
-  //   width: 24,
-  //   height: 24,
-  //   marginLeft: 31,
-  // },
   arrowIcon: {
     width: 24,
     height: 24,

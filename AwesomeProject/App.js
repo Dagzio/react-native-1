@@ -6,6 +6,8 @@ import RegistrationScreen from "./screens/RegistrationScreen/RegistrationScreen"
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import PostsScreen from "./screens/PostsScreen/PostsScreen";
 import HomeScreen from './screens/HomeScreen/HomeScreen'
+import MapScreen from './screens/MapScreen/MapScreen';
+import CommentsScreen from './screens/CommentsScreen/CommentsScreen'
 import { useFonts } from "expo-font";
 
 const MainStack = createStackNavigator();
@@ -25,6 +27,8 @@ export default App = () => {
         <MainStack.Screen name="LoginScreen" component={LoginScreen } options={{ headerShown: false }}/>
       <MainStack.Screen name="HomeScreen" component={HomeScreen } options={{ headerShown: false }}/>
       <MainStack.Screen name="PostsScreen" component={PostsScreen } options={{ headerShown: false }}/>
+      <MainStack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }}/>
+      <MainStack.Screen name="CommentsScreen" component={CommentsScreen}/>      
       </MainStack.Navigator>
     </NavigationContainer>
 };

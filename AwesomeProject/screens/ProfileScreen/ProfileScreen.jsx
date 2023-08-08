@@ -17,12 +17,11 @@ const ProfileScreen = () => {
 
     return (
       <ScrollView>
-    <View style={styles.container}>
-    
+    <View >
       <ImageBackground
         source={require("../../assets/images/imageBG.jpg")}
-        resizeMode="cover"
-        style={styles.container}
+        resizeMode='cover'
+        style={styles.background}
       >
         <StatusBar
           style="auto"
@@ -48,15 +47,16 @@ const ProfileScreen = () => {
           >
             <Image source={require("../../assets/icons/logOutIcon.jpg")} />
                   </Pressable>
-          <View style={styles.iconWrapper}>
+                  
+          <View style={styles.imagePostWrapper}>
             <Image source={require("../../assets/images/postImage1.jpg")} />
           </View>
-          <Text style={styles.imageText}>Ліс</Text>
-          <View style={styles.detailsWrapper}>
+          <Text style={styles.imagePostTitle}>Ліс</Text>
+          <View style={styles.detailsPostWrapper}>
             <View style={styles.countWrapper}>
               <TouchableOpacity onPress={() => navigation.navigate("CommentsScreen")}>
                 <Image
-                  style={styles.shapeIcon}
+                  style={styles.commentIcon}
                   source={require("../../assets/icons/commentOrangeIcon.jpg")}
                 />
               </TouchableOpacity>
@@ -64,28 +64,29 @@ const ProfileScreen = () => {
             </View>
             <View style={styles.likeCountWrapper}>
               <Image
-                style={styles.shapeIcon}
+                style={styles.commentIcon}
                 source={require("../../assets/icons/likeOrangeIcon.jpg")}
               />
               <Text style={styles.countComents}>153</Text>
             </View>
             <View style={styles.locationWrapper}>
               <Image
-                style={styles.mapPinIcon}
+                style={styles.locationIcon}
                 source={require("../../assets/icons/locationIcon.jpg")}
               />
-              <Text style={styles.country}>Ukraine</Text>
+              <Text style={styles.countryTitle}>Ukraine</Text>
             </View>
           </View>
-          <View style={styles.iconWrapper}>
+
+          <View style={styles.imagePostWrapper}>
             <Image source={require("../../assets/images/postImage2.jpg")} />
           </View>
-          <Text style={styles.imageText}>Захід на чорному морі</Text>
-          <View style={styles.detailsWrapper}>
+          <Text style={styles.imagePostTitle}>Захід на чорному морі</Text>
+          <View style={styles.detailsPostWrapper}>
             <View style={styles.countWrapper}>
               <TouchableOpacity onPress={() => navigation.navigate("CommentsScreen")}>
                 <Image
-                  style={styles.shapeIcon}
+                  style={styles.commentIcon}
                   source={require("../../assets/icons/commentOrangeIcon.jpg")}
                 />
               </TouchableOpacity>
@@ -93,30 +94,29 @@ const ProfileScreen = () => {
             </View>
             <View style={styles.likeCountWrapper}>
               <Image
-                style={styles.shapeIcon}
+                style={styles.commentIcon}
                 source={require("../../assets/icons/likeOrangeIcon.jpg")}
               />
                   <Text style={styles.countComents}>200</Text>
                   </View>
                  <View style={styles.locationWrapper}>
               <Image
-                style={styles.mapPinIcon}
+                style={styles.locationIcon}
                 source={require("../../assets/icons/locationIcon.jpg")}
               />
-              <Text style={styles.country}>Ukraine</Text>
-            
+              <Text style={styles.countryTitle}>Ukraine</Text>
             </View>
           
           </View>
-          <View style={styles.iconWrapper}>
-            <Image source={require("../../assets/images/postImage3.jpg")} />
+          <View style={styles.imagePostWrapper}>
+            <Image source={require("../../assets/images/postImage3.jpg")}/>
           </View>
-          <Text style={styles.imageText}>Старий будиночок у Венеції</Text>
-          <View style={styles.detailsWrapper}>
+          <Text style={styles.imagePostTitle}>Старий будиночок у Венеції</Text>
+          <View style={styles.detailsPostWrapper}>
             <View style={styles.countWrapper}>
               <TouchableOpacity onPress={() => navigation.navigate("CommentsScreen")}>
                 <Image
-                  style={styles.shapeIcon}
+                  style={styles.commentIcon}
                   source={require("../../assets/icons/commentOrangeIcon.jpg")}
                 />
               </TouchableOpacity>
@@ -124,17 +124,17 @@ const ProfileScreen = () => {
             </View>
             <View style={styles.likeCountWrapper}>
               <Image
-                style={styles.shapeIcon}
+                style={styles.commentIcon}
                 source={require("../../assets/icons/likeOrangeIcon.jpg")}
               />
               <Text style={styles.countComents}>200</Text>
             </View>
             <View style={styles.locationWrapper}>
               <Image
-                style={styles.mapPinIcon}
+                style={styles.locationIcon}
                 source={require("../../assets/icons/locationIcon.jpg")}
               />
-              <Text style={styles.country}>Italy</Text>
+              <Text style={styles.countryTitle}>Italy</Text>
             </View>
          </View>      
        </View>   
@@ -145,8 +145,8 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  background: {
+    paddingTop:103
   },
   avatar: {
     position: "absolute",
@@ -163,6 +163,13 @@ const styles = StyleSheet.create({
     top: 15,
     left: 229,
   },
+  logOutIcon: {
+    position: "absolute",
+    width: 24,
+    height: 24,
+    top: 22,
+    right: 16,
+  },
   userName: {
     textAlign: "center",
     fontSize: 30,
@@ -172,41 +179,40 @@ const styles = StyleSheet.create({
     color: "#212121",
   },
   postsContainer: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    // marginLeft: "auto",
-    // marginRight: "auto",
+    paddingLeft: 24,
+    paddingRight: 24,
     paddingTop: 92,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: "#fff",
-
+  
   },
-  iconWrapper: {
+  imagePostWrapper: {
     marginBottom: 8,
     borderRadius: 8,
+    width:343,
   },
-  imageText: {
+  imagePostTitle: {
     marginBottom: 8,
     fontSize: 16,
     lineHeight: 19,
     fontFamily: "Roboto400",
   },
-  detailsWrapper: {
+  detailsPostWrapper: {
     marginBottom: 32,
     flexDirection: "row",
   },
-  shapeIcon: {
+  commentIcon: {
     width: 18,
     height: 18,
     marginRight: 6,
   },
-  mapPinIcon: {
+  locationIcon: {
     width: 24,
     height: 24,
     marginRight: 8,
     },
-  country: {
+  countryTitle: {
     textDecorationLine: "underline"
   },
   countComents: {
@@ -227,15 +233,9 @@ const styles = StyleSheet.create({
   locationWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    // marginLeft: "auto",
+    marginLeft:"auto",
   },
-    logOutIcon: {
-    position: "absolute",
-    width: 24,
-    height: 24,
-    top: 22,
-    right: 16,
-  },
+   
 });
 
 export default ProfileScreen;
