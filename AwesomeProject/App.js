@@ -26,7 +26,6 @@ export default App = () => {
         <MainStack.Screen name="RegistrationScreen" component={RegistrationScreen} options={{ headerShown: false }}/>
         <MainStack.Screen name="LoginScreen" component={LoginScreen } options={{ headerShown: false }}/>
       <MainStack.Screen name="HomeScreen" component={HomeScreen } options={{ headerShown: false }}/>
-      <MainStack.Screen name="PostsScreen" component={PostsScreen } options={{ headerShown: false }}/>
       <MainStack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }}/>
       <MainStack.Screen name="CommentsScreen" component={CommentsScreen}/>      
       </MainStack.Navigator>

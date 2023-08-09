@@ -2,25 +2,22 @@ import { Image, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 
-export const createPostIcon = (children) => {
-    return <TouchableOpacity style={styles.iconWrapper}>
-     {children}
-    </TouchableOpacity>
-};
-
 export const addPostIcon = () => {
- return <Image source={require("../../assets/icons/addIcon.jpg")} style={styles.addIcon} />
+ return ( <TouchableOpacity style={styles.iconWrapper}>
+ <Image source={require("../../assets/icons/addIcon.jpg")} style={styles.addIcon} />
+ </TouchableOpacity>);
 }
 
 export const gridIcon = () => {
-    return <Image source={require("../../assets/icons/gridIcon.jpg")} style={styles.gridAndUserIcons} />
-
+    return (
+    <Image source={require("../../assets/icons/gridIcon.png")} style={styles.gridAndUserIcons} />
+    );
 };
 
-
 export const userIcon = () => {
-    return <Image source={require("../../assets/icons/userIcon.jpg")} style={styles.gridAndUserIcons} />
-
+    return (
+    <Image source={require("../../assets/icons/userIcon.png")} style={styles.gridAndUserIcons} />
+    );
 };
 
 const styles = StyleSheet.create({

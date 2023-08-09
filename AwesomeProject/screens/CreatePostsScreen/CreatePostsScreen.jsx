@@ -10,10 +10,9 @@ import {
   KeyboardAvoidingView,
   Keyboard,
 } from "react-native";
-// import { Camera } from "expo-camera";
 
 import { useNavigation } from "@react-navigation/native";
-// import * as Location from "expo-location";
+
 
 export function CreatePostsScreen() {
   const navigation = useNavigation();
@@ -28,31 +27,20 @@ export function CreatePostsScreen() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          {takenPhoto ? (
-            <View style={styles.addPhotoContainer}>
-              <Image
-                source={{ uri: takenPhoto }}
-                style={styles.publicationPhoto}
-              />
-              <View style={styles.publicationAddPhotoIconWrapper}>
-                <Image
-                  source={require("../CreatePostsScreen/camera-white.png")}
-                  style={styles.publicationAddPhotoIcon}
-                />
-              </View>
-            </View>
-          ) : (
+          
             
-              <TouchableOpacity>
+              
                 <View style={styles.addPhotoContainer}>
+                <TouchableOpacity style={styles.addPhotoButton}>
                   <Image
-                    source={require("../CreatePostsScreen/camera.png")}
+                    source={require("../../assets/icons/cameraIcon.jpg")}
                     style={styles.addPhotoIcon}
                   />
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
+              
           
-          )}
+          
           <Text style={styles.addPhotoText}>Завантажте фото</Text>
           <TextInput
             value={name}
@@ -70,28 +58,22 @@ export function CreatePostsScreen() {
               placeholderStyle={{ fontFamily: "Roboto400" }}
             />
             <Image
-              style={styles.mapPinIcon}
-              source={require("../CreatePostsScreen/map-pin.png")}
+              style={styles.locationIcon}
+              source={require("../../assets/icons/locationIcon.jpg")}
             />
           </View>
 
-          {name && location !== "" ? (
-            <TouchableOpacity style={styles.button} onPress={handleSumbit}>
+          
+            <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>Опублікувати</Text>
             </TouchableOpacity>
-          ) : (
-            <View style={styles.publishTextWrapper}>
-              <Text style={styles.publishText}>Опублікувати</Text>
-            </View>
-          )}
           <View style={styles.trashIconWrapper}>
             <TouchableOpacity
-              style={styles.trashIconTouchable}
-             
+              style={styles.trashIconButton}
             >
               <Image
                 style={styles.trashIcon}
-                source={require("../CreatePostsScreen/trash.png")}
+                source={require("../../assets/icons/trashIcon.jpg")}
               />
             </TouchableOpacity>
           </View>
@@ -103,109 +85,94 @@ export function CreatePostsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 32,
+    backgroundColor: "#fff",
   },
   addPhotoContainer: {
     height: 240,
+    marginBottom: 8,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#e8e8e8",
+    borderRadius: 8,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#bdbdbd"
+  },
+  addPhotoButton: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    backgroundColor: "#fff",
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   addPhotoText: {
-    fontFamily: "Roboto400",
-    marginTop: 8,
+    marginBottom: 32,
     fontSize: 16,
     lineHeight: 19,
-    color: "#BDBDBD",
+    color: "#bdbdbd",
+    fontFamily: "Roboto400",
   },
   addPhotoIcon: {
     width: 24,
     height: 24,
   },
-  publicationAddPhotoIconWrapper: {
-    position: "absolute",
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  publicationAddPhotoIcon: {
-    width: 24,
-    height: 24,
-  },
   inputName: {
     height: 50,
-    fontFamily: "Roboto400",
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginBottom: 16,
     fontSize: 16,
     lineHeight: 19,
     borderBottomWidth: 1,
     borderStyle: "solid",
-    borderBottomColor: "#E8E8E8",
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: 32,
+    fontFamily: "Roboto400",
+    borderBottomColor: "#e8e8e8",
   },
   inputLocation: {
     height: 50,
-    fontFamily: "Roboto400",
+    marginBottom: 32,
+    paddingLeft: 28,
     fontSize: 16,
     lineHeight: 19,
     borderBottomWidth: 1,
     borderStyle: "solid",
-    borderBottomColor: "#E8E8E8",
-    marginTop: 32,
-    paddingLeft: 28,
+    fontFamily: "Roboto400",
+    borderBottomColor: "#e8e8e8",
   },
-  mapPinIcon: {
+  locationIcon: {
     height: 24,
     width: 24,
     position: "absolute",
-    top: 46,
+    top: 16,
   },
   button: {
     width: "100%",
     alignItems: "center",
+    marginBottom: 70,
     paddingTop: 16,
     paddingBottom: 16,
     borderRadius: 100,
-    backgroundColor: "#FF6C00",
-    marginTop: 48,
+    backgroundColor: "#f6f6f6",
   },
   buttonText: {
-    color: "#fff",
     fontSize: 16,
     lineHeight: 19,
     fontFamily: "Roboto400",
-  },
-  publishTextWrapper: {
-    alignItems: "center",
-  },
-  publishText: {
-
-    fontFamily: "Roboto400",
-    fontSize: 16,
-    lineHeight: 19,
-    color: "#BDBDBD",
-  },
-  publicationPhoto: {
-    height: "100%",
-    width: "100%",
-    objectFit: "cover",
-    borderRadius: 8,
+    color: "#bdbdbd",
   },
   trashIconWrapper: {
     alignItems: "center",
-    backgroundColor: "#F6F6F6",
+    alignSelf: "center",
     width: 70,
     height: 40,
     borderRadius: 20,
-    alignSelf: "center",
+    backgroundColor: "#f6f6f6",
   },
-  trashIconTouchable: {
+  trashIconButton: {
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",

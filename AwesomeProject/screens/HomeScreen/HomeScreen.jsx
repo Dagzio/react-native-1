@@ -3,14 +3,18 @@ import {Pressable, StyleSheet, Image } from "react-native";
 
 import  CreatePostsScreen  from "../CreatePostsScreen/CreatePostsScreen";
 import  PostsScreen  from "../PostsScreen/PostsScreen";
-import { useNavigation } from "@react-navigation/native";
 import  ProfileScreen  from "../ProfileScreen/ProfileScreen";
-import { createPostIcon, gridIcon, userIcon, addPostIcon } from "./tabBarIcons";
+
+import { useNavigation } from "@react-navigation/native";
+import { gridIcon, userIcon, addPostIcon } from "./tabBarIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 const Tabs = createBottomTabNavigator();
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+
 
   return (
     <Tabs.Navigator
@@ -20,7 +24,7 @@ const HomeScreen = () => {
 
               switch (route.name) {
                 case "CreatePostScreen":
-                      iconSrc = createPostIcon(addPostIcon());
+                      iconSrc = addPostIcon();
                       return iconSrc;
                   case "PostsScreen":
                       iconSrc = gridIcon();
@@ -33,12 +37,14 @@ const HomeScreen = () => {
                     break;
               }
         },
+        
         tabBarStyle: {
           paddingLeft: 50,
           paddingRight: 50,
           paddingTop: 9,
           paddingBottom: 9,
         },
+        
         tabBarShowLabel: false,
       })}
     >
@@ -83,7 +89,8 @@ const HomeScreen = () => {
             fontSize: 17,
             lineHeight: 22,
             color: "#212121",
-          },
+          },                  
+          tabBarStyle: {display: "none"},
           headerLeft: () => (
             <Pressable onPress={() => navigation.navigate("PostsScreen")}>
               <Image
@@ -97,7 +104,7 @@ const HomeScreen = () => {
       <Tabs.Screen
         name="ProfileScreen"
         component={ProfileScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false}}
       />
     </Tabs.Navigator>
   );
