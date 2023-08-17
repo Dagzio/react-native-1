@@ -7,7 +7,6 @@ import  ProfileScreen  from "../ProfileScreen/ProfileScreen";
 
 import { useNavigation } from "@react-navigation/native";
 import { gridIcon, userIcon, addPostIcon } from "./tabBarIcons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 const Tabs = createBottomTabNavigator();

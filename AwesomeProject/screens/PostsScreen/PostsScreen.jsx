@@ -1,4 +1,4 @@
-import { StyleSheet, Image, ScrollView, Text, Pressable,TouchableOpacity, View, } from "react-native";
+import { StyleSheet, Image, Text, View, } from "react-native";
 
 const PostsScreen = () => {
   return (

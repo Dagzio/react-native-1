@@ -10,13 +10,13 @@ export const addPostIcon = () => {
 
 export const gridIcon = () => {
     return (
-    <Image source={require("../../assets/icons/gridIcon.png")} style={styles.gridAndUserIcons} />
+    <Image source={require("../../assets/icons/gridIcon.jpg")} style={styles.gridAndUserIcons} />
     );
 };
 
 export const userIcon = () => {
     return (
-    <Image source={require("../../assets/icons/userIcon.png")} style={styles.gridAndUserIcons} />
+    <Image source={require("../../assets/icons/userIcon.jpg")} style={styles.gridAndUserIcons} />
     );
 };
 
